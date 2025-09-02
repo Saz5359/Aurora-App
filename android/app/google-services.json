@@ -1,0 +1,251 @@
+{
+  "project_info": {
+    "project_number": "533111492480",
+    "firebase_url": "https://aurora-demo-d9027-default-rtdb.firebaseio.com",
+    "project_id": "aurora-demo-d9027",
+    "storage_bucket": "aurora-demo-d9027.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:9bb8bbbe4de7d4b65ebb65",
+        "android_client_info": {
+          "package_name": "com.aurorademo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:d9447ddf42aa59e25ebb65",
+        "android_client_info": {
+          "package_name": "com.example.aroura_fix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:958de283c9f8bd8f5ebb65",
+        "android_client_info": {
+          "package_name": "com.example.aurora_app_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:079fc96789f9a9e65ebb65",
+        "android_client_info": {
+          "package_name": "com.example.aurora_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-0bsj48i3p5kinor97p4vqp6kohfaakv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aurora_demo",
+            "certificate_hash": "8ebdaf0f8a77f9cac4552e02254c11629193ba1e"
+          }
+        },
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:604ad39e812906885ebb65",
+        "android_client_info": {
+          "package_name": "com.example.aurora_demo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-es0pr3nflt0d0l013dlhtgkp3tos6m3b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aurora_demo_app",
+            "certificate_hash": "8ebdaf0f8a77f9cac4552e02254c11629193ba1e"
+          }
+        },
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533111492480:android:e5f4db4974283fba5ebb65",
+        "android_client_info": {
+          "package_name": "com.example.aurora_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533111492480-f54p984d6e8ikrpa2i5diqvkcpc9uaqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aurora_v1",
+            "certificate_hash": "8ebdaf0f8a77f9cac4552e02254c11629193ba1e"
+          }
+        },
+        {
+          "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrHDWP7YifYxpXhhBHSY1E3FJBI2Hpf_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533111492480-44qiavrjv1gdqm3uqv5u1ls21f1556fd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "533111492480-3dqmb0o53h77tjtk28ch93oir6h46fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.auroraAppDemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
