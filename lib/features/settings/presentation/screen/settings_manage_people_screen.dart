@@ -14,59 +14,73 @@ class SettingsManagePeopleScreen extends StatelessWidget {
         onBack: () => context.pop(),
         title: "Devices and Networks",
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Guests',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.primary),
+      body: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
             ),
-            const SizedBox(
-              height: 10,
+            child: IntrinsicHeight(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Guests',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    RichText(
+                      text: const TextSpan(children: [
+                        TextSpan(
+                            text: 'Add people to help manage the device',
+                            style: TextStyle(
+                                fontSize: 16, color: Color(0xFF686777))),
+                      ]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SessionItem(
+                      icon: Icons.person_outline,
+                      title: 'Kevin Michael Allin',
+                      onDeactivate: () =>
+                          context.push("/settings/devices/people/remove"),
+                    ),
+                    SessionItem(
+                      icon: Icons.person_outline,
+                      title: 'Belle Guness',
+                      onDeactivate: () =>
+                          context.push("/settings/devices/people/remove"),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Spacer(),
+                    AppButton(
+                        label: "Add People",
+                        onPressed: () =>
+                            context.push("/settings/devices/people/add"),
+                        type: AppButtonType.cancel),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    AppButton(
+                        label: "Cancel",
+                        onPressed: () => context.pop(),
+                        type: AppButtonType.cancel),
+                  ],
+                ),
+              ),
             ),
-            RichText(
-              text: const TextSpan(children: [
-                TextSpan(
-                    text: 'Add people to help manage the device',
-                    style: TextStyle(fontSize: 16, color: Color(0xFF686777))),
-              ]),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SessionItem(
-              icon: Icons.person_outline,
-              title: 'Kevin Michael Allin',
-              onDeactivate: () =>
-                  context.push("/settings/devices/people/remove"),
-            ),
-            SessionItem(
-              icon: Icons.person_outline,
-              title: 'Belle Guness',
-              onDeactivate: () =>
-                  context.push("/settings/devices/people/remove"),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Spacer(),
-            AppButton(
-                label: "Add People",
-                onPressed: () => context.push("/settings/devices/people/add"),
-                type: AppButtonType.cancel),
-            const SizedBox(
-              height: 10,
-            ),
-            AppButton(
-                label: "Cancel",
-                onPressed: () => context.pop(),
-                type: AppButtonType.cancel),
-          ],
+          ),
         ),
       ),
     );

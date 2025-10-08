@@ -1,5 +1,5 @@
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/features/dashboard/domain/repository/sensor_repository.dart';
-import '../entities/sensor_data.dart';
 
 /// Use case: Stream the latest sensor data for a given [deviceId].
 class StreamSensorDataUseCase {

@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/core/helpers/snackbar_helper.dart';
 import 'package:aurora_v1/core/utils/logger.dart';
-import 'package:aurora_v1/features/device_dashboard/data/model/sensor_data_model.dart';
 import 'package:aurora_v1/features/device_dashboard/domain/usecases/get_device_name.dart';
 import 'package:aurora_v1/features/device_dashboard/domain/usecases/stream_device_sensor_data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +37,7 @@ class DeviceDashboardBloc
       }
 
       AppLogger.info("Starting sensor data stream for device: $deviceName");
-      await emit.forEach<SensorDataModel?>(
+      await emit.forEach<SensorData?>(
         streamSensorData(deviceName),
         onData: (sensorData) {
           if (sensorData == null) {

@@ -4,11 +4,13 @@ import 'package:aurora_v1/core/widgets/step_app_bar.dart';
 import 'package:aurora_v1/features/add_grow/presentation/widgets/custom_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../bloc/add_grow_bloc.dart';
 
 class NameGrowPage extends StatefulWidget {
-  final void Function()? onBack;
-  const NameGrowPage({super.key, this.onBack});
+  const NameGrowPage({
+    super.key,
+  });
 
   @override
   State<NameGrowPage> createState() => _NameGrowPageState();
@@ -52,7 +54,7 @@ class _NameGrowPageState extends State<NameGrowPage> {
     return Scaffold(
       appBar: StepAppBar(
         title: 'Add Grow',
-        onBack: widget.onBack,
+        onBack: context.pop,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),

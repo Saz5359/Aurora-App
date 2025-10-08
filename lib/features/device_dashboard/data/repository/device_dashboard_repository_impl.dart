@@ -1,8 +1,7 @@
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/features/device_dashboard/data/datasources/device_sensor_remote_data_source.dart';
 import 'package:aurora_v1/features/device_dashboard/data/datasources/device_remote_data_source.dart';
 import 'package:aurora_v1/features/device_dashboard/domain/repository/device_dashboard_repository.dart';
-
-import '../../../device_dashboard/data/model/sensor_data_model.dart';
 
 class DeviceDashboardRepositoryImpl implements DeviceDashboardRepository {
   final DeviceRemoteDataSource deviceRemoteDataSource;
@@ -19,7 +18,7 @@ class DeviceDashboardRepositoryImpl implements DeviceDashboardRepository {
   }
 
   @override
-  Stream<SensorDataModel?> streamSensorData(String deviceName) {
+  Stream<SensorData?> streamSensorData(String deviceName) {
     return sensorRemoteDataSource.streamSensorData(deviceName);
   }
 }

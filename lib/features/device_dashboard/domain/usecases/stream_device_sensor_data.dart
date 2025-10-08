@@ -1,4 +1,4 @@
-import 'package:aurora_v1/features/device_dashboard/data/model/sensor_data_model.dart';
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/features/device_dashboard/domain/repository/device_dashboard_repository.dart';
 
 class StreamDeviceSensorData {
@@ -6,7 +6,7 @@ class StreamDeviceSensorData {
 
   StreamDeviceSensorData(this.repository);
 
-  Stream<SensorDataModel?> call(String deviceName) {
+  Stream<SensorData?> call(String deviceName) {
     return repository.streamSensorData(deviceName);
   }
 }

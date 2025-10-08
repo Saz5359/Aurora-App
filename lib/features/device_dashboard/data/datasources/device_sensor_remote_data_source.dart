@@ -1,4 +1,4 @@
-import 'package:aurora_v1/features/device_dashboard/data/model/sensor_data_model.dart';
+import 'package:aurora_v1/core/common/model/sensor_data_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 abstract class DeviceSensorRemoteDataSource {

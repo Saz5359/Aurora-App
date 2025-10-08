@@ -1,10 +1,8 @@
+import 'package:aurora_v1/features/login/domain/entities/login_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginModel {
-  final String uid;
-  final String email;
-
-  LoginModel({required this.uid, required this.email});
+class LoginModel extends LoginUser {
+  LoginModel({required super.uid, required super.email});
 
   factory LoginModel.fromFirebaseUser(User user) {
     return LoginModel(

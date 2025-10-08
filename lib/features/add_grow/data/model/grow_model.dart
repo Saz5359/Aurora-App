@@ -24,17 +24,4 @@ class GrowModel extends Grow {
       'addedAt': DateTime.now(),
     };
   }
-
-  /// Create model from domain entity.
-  factory GrowModel.fromEntity(Grow grow) {
-    return GrowModel(
-      plantName: grow.plantName,
-      strain: grow.strain,
-      strainName1: grow.strainName1,
-      strainName2: grow.strainName2,
-      plantStage: grow.plantStage,
-      environment: grow.environment,
-      isHybrid: grow.isHybrid,
-    );
-  }
 }

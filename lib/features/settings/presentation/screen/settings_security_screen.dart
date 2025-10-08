@@ -13,87 +13,98 @@ class SettingsSecurityScreen extends StatelessWidget {
         onBack: () => context.pop(),
         title: "Password and Security",
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Active sessions',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.primary),
+      body: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            RichText(
-              text: const TextSpan(children: [
-                TextSpan(
-                    text: 'Where you are logged in',
-                    style: TextStyle(fontSize: 16, color: Color(0xFF686777))),
-              ]),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SessionItem(
-              icon: Icons.phone_iphone,
-              title: 'iPhone X - JHB, South Africa',
-              onDeactivate: () =>
-                  context.push("/settings/personal/sessions/deactivate"),
-            ),
-            SessionItem(
-              icon: Icons.computer,
-              title: 'Windows PC - CP, South Africa',
-              onDeactivate: () =>
-                  context.push("/settings/personal/sessions/deactivate"),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Login',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.primary),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            RichText(
-              text: const TextSpan(children: [
-                TextSpan(
-                    text: 'Update/ Change Password',
-                    style: TextStyle(fontSize: 16, color: Color(0xFF686777))),
-              ]),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () => context.push("/forgot_password"),
-              child: Row(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(
-                    Icons.add_box_outlined,
-                    size: 25,
+                  Text(
+                    'Active sessions',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).colorScheme.primary),
                   ),
-                  SizedBox(
-                    width: 10,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  RichText(
+                    text: const TextSpan(children: [
+                      TextSpan(
+                          text: 'Where you are logged in',
+                          style: TextStyle(
+                              fontSize: 16, color: Color(0xFF686777))),
+                    ]),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SessionItem(
+                    icon: Icons.phone_iphone,
+                    title: 'iPhone X - JHB, South Africa',
+                    onDeactivate: () =>
+                        context.push("/settings/personal/sessions/deactivate"),
+                  ),
+                  SessionItem(
+                    icon: Icons.computer,
+                    title: 'Windows PC - CP, South Africa',
+                    onDeactivate: () =>
+                        context.push("/settings/personal/sessions/deactivate"),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Text(
-                    'Change Password',
+                    'Login',
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
                         color: Theme.of(context).colorScheme.primary),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  RichText(
+                    text: const TextSpan(children: [
+                      TextSpan(
+                          text: 'Update/ Change Password',
+                          style: TextStyle(
+                              fontSize: 16, color: Color(0xFF686777))),
+                    ]),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () => context.push("/forgot_password"),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.add_box_outlined,
+                          size: 25,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Change Password',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Theme.of(context).colorScheme.primary),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );

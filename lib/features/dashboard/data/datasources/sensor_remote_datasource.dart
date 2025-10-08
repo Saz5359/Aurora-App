@@ -1,9 +1,8 @@
+import 'package:aurora_v1/core/common/model/sensor_data_model.dart';
 import 'package:aurora_v1/core/utils/logger.dart';
-import 'package:aurora_v1/features/dashboard/data/model/sensor_data_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../domain/entities/sensor_data.dart';
 
 /// Thrown when Remote Sensor DataSource encounters an error.
 class SensorRemoteDataSourceException implements Exception {
@@ -54,7 +53,7 @@ class SensorRemoteDataSource {
     }
   }
 
-  Stream<SensorData?> streamLatestSensorData(String deviceId) {
+  Stream<SensorDataModel?> streamLatestSensorData(String deviceId) {
     try {
       final today = DateTime.now().toIso8601String().split('T')[0];
       final path = '$deviceId/monitoring/$today';

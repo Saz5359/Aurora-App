@@ -18,72 +18,84 @@ class _SettingsAccountScreenState extends State<SettingsAccountScreen> {
         onBack: null,
         title: "Account Deletion",
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Sorry to see you go!',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.primary),
+      body: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            RichText(
-              text: const TextSpan(children: [
-                TextSpan(
-                    text:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                    style: TextStyle(fontSize: 16, color: Color(0xFF686777))),
-              ]),
-            ),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Checkbox(
-                  activeColor: Theme.of(context).colorScheme.secondary,
-                  value: isChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked = value ?? false;
-                    });
-                  },
-                  checkColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Sorry to see you go!',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).colorScheme.primary),
                   ),
-                ),
-                Expanded(
-                  child: RichText(
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  RichText(
                     text: const TextSpan(children: [
                       TextSpan(
                           text:
-                              'We at grow respect your privacy, would you like us to remove your data from our system as well in accordance with the South African PoPI act',
+                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                           style: TextStyle(
                               fontSize: 16, color: Color(0xFF686777))),
                     ]),
                   ),
-                ),
-              ],
+                  const Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        activeColor: Theme.of(context).colorScheme.secondary,
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value ?? false;
+                          });
+                        },
+                        checkColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                      Expanded(
+                        child: RichText(
+                          text: const TextSpan(children: [
+                            TextSpan(
+                                text:
+                                    'We at grow respect your privacy, would you like us to remove your data from our system as well in accordance with the South African PoPI act',
+                                style: TextStyle(
+                                    fontSize: 16, color: Color(0xFF686777))),
+                          ]),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AppButton(
+                      label: 'Delete Account',
+                      onPressed: () {},
+                      type: AppButtonType.delete),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  AppButton(
+                      label: 'Cancel',
+                      onPressed: () {},
+                      type: AppButtonType.confirm),
+                ],
+              ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            AppButton(
-                label: 'Delete Account',
-                onPressed: () {},
-                type: AppButtonType.delete),
-            const SizedBox(
-              height: 15,
-            ),
-            AppButton(
-                label: 'Cancel', onPressed: () {}, type: AppButtonType.confirm),
-          ],
+          ),
         ),
       ),
     );

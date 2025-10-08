@@ -20,14 +20,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
 
-  // Initialize Firebase with error handling
+  // Initialize Firebase
   try {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
   } catch (e) {
     AppLogger.error("Firebase initialization error: $e");
   }
+  // Load environment variables
   await dotenv.load();
+  // Initialize service locator
   await init();
   runApp(const MyApp());
 }

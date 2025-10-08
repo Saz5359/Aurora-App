@@ -1,6 +1,6 @@
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/features/dashboard/domain/repository/sensor_repository.dart';
 
-import '../../domain/entities/sensor_data.dart';
 import '../datasources/sensor_remote_datasource.dart';
 
 class SensorRepositoryImpl implements SensorRepository {

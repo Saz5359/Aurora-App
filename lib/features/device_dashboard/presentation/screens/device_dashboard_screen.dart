@@ -1,13 +1,15 @@
+import 'package:aurora_v1/core/common/entities/sensor_data.dart';
 import 'package:aurora_v1/core/helpers/snackbar_helper.dart';
 import 'package:aurora_v1/core/utils/logger.dart';
 import 'package:aurora_v1/core/widgets/dashboard_app_bar.dart';
-import 'package:aurora_v1/features/device_dashboard/data/model/sensor_data_model.dart';
 import 'package:aurora_v1/features/device_dashboard/presentation/bloc/device_dashboard_bloc.dart';
-import 'package:aurora_v1/features/device_dashboard/presentation/widgets/metric_card.dart';
+import 'package:aurora_v1/features/device_dashboard/presentation/widgets/metric_overview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import '../widgets/tab_content.dart';
 
 class DeviceDashScreen extends StatefulWidget {
   final String growName;
@@ -102,7 +104,7 @@ class _DeviceDashScreenState extends State<DeviceDashScreen>
 
   String calculatePlantHealth() {
     final state = context.watch<DeviceDashboardBloc>().state;
-    SensorDataModel? data;
+    SensorData? data;
     if (state is DeviceDashboardLoaded) {
       data = state.sensorData;
     }
@@ -155,7 +157,7 @@ class _DeviceDashScreenState extends State<DeviceDashScreen>
     ].contains(status);
   }
 
-  double calculateHealthPercent(SensorDataModel? data) {
+  double calculateHealthPercent(SensorData? data) {
     if (data == null) {
       AppLogger.info("Sensor data is null, cannot calculate health percent.");
       return 0.0;
@@ -218,7 +220,7 @@ class _DeviceDashScreenState extends State<DeviceDashScreen>
         }
 
         final blocState = context.watch<DeviceDashboardBloc>().state;
-        SensorDataModel? data;
+        SensorData? data;
         if (blocState is DeviceDashboardLoaded) {
           data = blocState.sensorData;
         }
@@ -376,28 +378,34 @@ class _DeviceDashScreenState extends State<DeviceDashScreen>
                     child: TabBarView(
                       controller: _tabController,
                       children: [
-                        _buildMetricsOverview(
-                            data, _getStatusText, _getStatusColor),
-                        _buildTabContent(
-                            "UV Light",
-                            "Ideal Light: Moderate",
-                            "assets/images/grow.png",
-                            "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
-                        _buildTabContent(
-                            "Humidity",
-                            "Ideal Humidity: 65-80%",
-                            "assets/images/grow.png",
-                            "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
-                        _buildTabContent(
-                            "Soil",
-                            "Ideal Soil Level: Sufficient",
-                            "assets/images/grow.png",
-                            "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
-                        _buildTabContent(
-                            "Temperature",
-                            "Ideal Temperature: 22-28°C",
-                            "assets/images/grow.png",
-                            "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
+                        MetricOverview(
+                            sensorData: data,
+                            getStatusText: _getStatusText,
+                            getStatusColor: _getStatusColor),
+                        TabContent(
+                            title: "UV Light",
+                            description: "Ideal Light: Moderate",
+                            imagePath: "assets/images/grow.png",
+                            data:
+                                "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
+                        TabContent(
+                            title: "Humidity",
+                            description: "Ideal Humidity: 65-80%",
+                            imagePath: "assets/images/grow.png",
+                            data:
+                                "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
+                        TabContent(
+                            title: "Soil",
+                            description: "Ideal Soil Level: Sufficient",
+                            imagePath: "assets/images/grow.png",
+                            data:
+                                "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
+                        TabContent(
+                            title: "Temperature",
+                            description: "Ideal Temperature: 22-28°C",
+                            imagePath: "assets/images/grow.png",
+                            data:
+                                "At this stage, your plants have not yet established their root systems. Creating a high-humidity environment in your nursery or clone room will reduce transpiration through the leaves and take the pressure off the immature root systems, allowing the root system to catch up before ramping up VPD and transpiration.\nMany growers opt to start clones and seedlings in mother or veg rooms, in which case they may use plastic humidity domes to help retain moisture (and in some cases heat), allowing them to share space with more mature plants without similar environmental constraints. However, if you use these domes, ensure they have proper ventilation to prevent building up too much moisture and to ensure exchange of CO2."),
                       ],
                     ),
                   ),
@@ -409,113 +417,4 @@ class _DeviceDashScreenState extends State<DeviceDashScreen>
       },
     );
   }
-}
-
-Widget _buildTabContent(
-    String title, String description, String imagePath, String data) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      const SizedBox(height: 20),
-      Text(
-        'Seedling: $title',
-        style: const TextStyle(
-            fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black),
-      ),
-      const SizedBox(height: 10),
-      Text(
-        description,
-        style: const TextStyle(fontSize: 16, color: Color(0xFF686777)),
-      ),
-      const SizedBox(height: 10),
-      Image.asset(
-        imagePath,
-        height: 301,
-        width: 349,
-      ),
-      const SizedBox(height: 20),
-      RichText(
-        text: TextSpan(
-          text: data,
-          style: const TextStyle(fontSize: 16, color: Color(0xFF686777)),
-        ),
-      ),
-      const SizedBox(
-        height: 10,
-      ),
-    ],
-  );
-}
-
-Widget _buildMetricsOverview(
-    SensorDataModel? sensorData, getStatusText, getStatusColor) {
-  if (sensorData == null) {
-    return const Center(child: CircularProgressIndicator());
-  }
-  AppLogger.info("Current data: ${sensorData.temperature}");
-
-  return Column(
-    children: [
-      SizedBox(
-        height: 10,
-      ),
-      MetricCard(
-        title: "Temperature",
-        status: getStatusText("Temperature", sensorData.temperature),
-        value: "${sensorData.temperature.toStringAsFixed(1)}°C",
-        icon: Image.asset(
-          "assets/images/degree.png",
-          width: 31,
-          height: 31,
-        ),
-        borderColor: getStatusColor("Temperature", sensorData.temperature),
-        backgroundColor: Colors.white,
-        description: "Ideal temperature for growth is between 20°C and 30°C.",
-      ),
-      MetricCard(
-        title: "UV Index",
-        status: getStatusText("UV_Index", sensorData.uvIndex),
-        value: "${sensorData.uvIndex.toStringAsFixed(0)}%",
-        icon: Image.asset(
-          "assets/images/rays.png",
-          width: 31,
-          height: 31,
-        ),
-        borderColor: getStatusColor("UV_Index", sensorData.uvIndex),
-        backgroundColor: Colors.white,
-        isHighlighted: true,
-        description: "UV levels are dangerously high. Provide shade!",
-      ),
-      MetricCard(
-        title: "Humidity",
-        status: getStatusText("Humidity", sensorData.humidity),
-        value: "${sensorData.humidity.toStringAsFixed(0)}%",
-        icon: Image.asset(
-          "assets/images/humidity-icon.png",
-          width: 31,
-          height: 31,
-        ),
-        description:
-            "The ideal cannabis flowering humidity is between 40% to 60%.",
-        borderColor: getStatusColor("Humidity", sensorData.humidity),
-        backgroundColor: Colors.white,
-        isHighlighted: true,
-      ),
-      MetricCard(
-        title: "Soil Moisture",
-        status: getStatusText("Soil_Moisture", sensorData.soilMoisture),
-        value: "${sensorData.soilMoisture.toStringAsFixed(0)}%",
-        icon: Image.asset(
-          "assets/images/rain.png",
-          width: 31,
-          height: 31,
-        ),
-        borderColor: getStatusColor("Soil_Moisture", sensorData.soilMoisture),
-        backgroundColor: Colors.white,
-        description:
-            "The ideal soil moisture for flowering is between 40% to 60%.",
-      ),
-    ],
-  );
 }

@@ -12,7 +12,7 @@ class DeviceDashboardInitial extends DeviceDashboardState {}
 class DeviceDashboardLoading extends DeviceDashboardState {}
 
 class DeviceDashboardLoaded extends DeviceDashboardState {
-  final SensorDataModel sensorData;
+  final SensorData sensorData;
 
   const DeviceDashboardLoaded(this.sensorData);
 

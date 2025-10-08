@@ -26,7 +26,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
       String phoneNumber, String password) async {
     try {
       final email =
-          '${phoneNumber.replaceAll(RegExp(r'[^\w]'), '')}@aurorademo.com';
+          '+${phoneNumber.replaceAll(RegExp(r'[^\w]'), '')}@aurora.app.com';
       AppLogger.info('Signing in with: $email');
       final userCredential = await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
